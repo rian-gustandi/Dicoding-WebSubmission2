@@ -1,10 +1,9 @@
 function main() {
 
-    const baseURL = 'https://web-server-book-dicoding.appspot.com'
-
+    const baseURL = 'https://www.thesportsdb.com';
 
     const getBook = () => {
-        fetch(`${baseURL}/list`)
+        fetch(`${baseURL}/api/v1/json/1/all_sports.php`)
             .then(response => {
                 return response.json();
             })
@@ -12,7 +11,7 @@ function main() {
                 if (responseJSON.error) {
                     showResponseMessage(responseJSON.message)
                 } else {
-                    renderAllBooks(responseJSON.books)
+                    renderAllBooks(responseJSON.sports)
                 }
             })
             .catch(error => {
@@ -21,99 +20,38 @@ function main() {
     };
 
 
-    const insertBook = (book) => {
-        fetch(`${baseURL}/add`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "X-Auth-Token": "12345"
-            },
-            body: JSON.stringify(book)
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(responseJSON => {
-                showResponseMessage(responseJSON.message)
-                getBook()
-            })
-            .catch(error => {
-                showResponseMessage(error);
-            })
-    };
-
-    const updateBook = (book) => {
-        fetch(`${baseURL}/edit/${book.id}`, {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "application/json",
-                "X-Auth-Token": "12345"
-            },
-            body: JSON.stringify(book)
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(responseJSON => {
-                showResponseMessage(responseJSON.message)
-                getBook()
-            })
-            .catch(error => {
-                showResponseMessage(error)
-            })
-    };
-
-    const removeBook = (bookId) => {
-        fetch(`${baseURL}/delete/${bookId}`, {
-            method: 'DELETE',
-            headers: {
-                "X-Auth-Token": "12345"
-            }
-        })
-        .then(response=>{
-            return response.json();
-        })
-        .then(responseJSON=>{
-            showResponseMessage(responseJSON.message)
-            getBook()
-        })
-        .catch(error=>{
-            showResponseMessage(error)
-        })
-    };
-
-
-
-
     /*
         jangan ubah kode di bawah ini ya!
     */
 
-    const renderAllBooks = (books) => {
+    const renderAllBooks = (sports) => {
         const listBookElement = document.querySelector("#listBook");
         listBookElement.innerHTML = "";
 
-        books.forEach(book => {
+        sports.forEach(book => {
             listBookElement.innerHTML += `
-                <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 12px;">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>(${book.id}) ${book.title}</h5>
-                            <p>${book.author}</p>
-                            <button type="button" class="btn btn-danger button-delete" id="${book.id}">Hapus</button>
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                <img src=${book.strSportThumb} class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">${book.strSport}</h5>
+                <p class="card-text">${book.strSportDescription.slice(0, 175) + ' ... '}</p>
+                </div>
+                <div class="card-footer">
+                <small class="text-muted">${book.strFormat}</small>
+                </div>
+                </div>
                 </div>
             `;
         });
 
-        const buttons = document.querySelectorAll(".button-delete");
-        buttons.forEach(button => {
-            button.addEventListener("click", event => {
-                const bookId = event.target.id;
-                removeBook(bookId);
-            })
-        })
+        // const buttons = document.querySelectorAll(".button-delete");
+        // buttons.forEach(button => {
+        //     button.addEventListener("click", event => {
+        //         const bookId = event.target.id;
+        //         removeBook(bookId);
+        //     })
+        // })
     };
 
     const showResponseMessage = (message = "Check your internet connection") => {
@@ -121,32 +59,13 @@ function main() {
     };
 
     document.addEventListener("DOMContentLoaded", () => {
+        // const buttonUpdate = document.querySelector("#buttonUpdate");
 
-        const inputBookId = document.querySelector("#inputBookId");
-        const inputBookTitle = document.querySelector("#inputBookTitle");
-        const inputBookAuthor = document.querySelector("#inputBookAuthor");
-        const buttonSave = document.querySelector("#buttonSave");
-        const buttonUpdate = document.querySelector("#buttonUpdate");
-
-        buttonSave.addEventListener("click", function () {
-            const book = {
-                id: Number.parseInt(inputBookId.value),
-                title: inputBookTitle.value,
-                author: inputBookAuthor.value
-            };
-            insertBook(book)
-        });
-
-        buttonUpdate.addEventListener("click", function () {
-            const book = {
-                id: Number.parseInt(inputBookId.value),
-                title: inputBookTitle.value,
-                author: inputBookAuthor.value
-            };
-
-            updateBook(book)
-        });
+        // buttonUpdate.addEventListener("click", function () {
+        //     updateBook()
+        // });
         getBook();
+        getCaro();
     });
 }
 
