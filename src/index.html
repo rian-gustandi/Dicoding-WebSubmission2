@@ -53,19 +53,6 @@
 
     <main role="main">
 
-        <!-- <section class="jumbotron text-center">
-            <div class="container">
-                <h1>Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the
-                    creator,
-                    etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
-            </div>
-        </section> -->
-
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -77,11 +64,10 @@
                         class="d-block w-100" alt="...">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida
-                                at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                            <h1>Soccer </h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde consequuntur id aliquid
+                                voluptate iusto. Quasi, omnis sapiente ut corrupti eius, dolore, et quae vel
+                                exercitationem cumque dolores eligendi animi quia.</p>
                         </div>
                     </div>
                 </div>
@@ -90,41 +76,70 @@
                         class="d-block w-100" alt="...">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida
-                                at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                            <h1>Basketball</h1>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium voluptate illum
+                                doloribus reiciendis distinctio soluta quia provident fugiat odio, facere aliquam? Est
+                                soluta, similique dolor modi enim assumenda vel qui.</p>
                         </div>
                     </div>
                 </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
 
         <section class="jumbotron text-center" id="same">
             <div class="container">
-                <h1>Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the
-                    creator,
-                    etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                <h1>TheSportsDB </h1>
+                <p class="lead text-muted">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti inventore nisi veniam sit, error
+                    quibusdam nostrum rerum quis delectus repellendus tempora culpa adipisci dolor, nam, optio
+                    architecto exercitationem. Eum, commodi!
                 </p>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <i class='fa fa-eye fa-sm'></i> Open Detail
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    TheSportsDB
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eos quibusdam
+                                reprehenderit veritatis perspiciatis deleniti, ex officiis soluta, perferendis ab
+                                suscipit cupiditate recusandae voluptatibus? Pariatur minima magni repellat vero
+                                accusamus!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <div class="album py-5 bg-light">
             <div class="container">
-                <div id="listBook" class="row">
+                <div id="listSports" class="row">
                 </div>
             </div>
         </div>
@@ -145,15 +160,7 @@
 
     </main>
 
-    <footer class="bg-success text-white">
-        <div class="container">
-            <p class="float-right">
-                <a href="#"><i class='fa fa-chevron-circle-up fa-sm'></i> Back to top</a>
-            </p>
-            <p>Copyright &#169; 2020. TheSportsDB</p>
-        </div>
-    </footer>
-
+    <footer-custom></footer-custom>
 
     <script src="index.js"></script>
     <!-- Optional JavaScript -->
